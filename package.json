@@ -1,0 +1,13 @@
+{
+  "name": "flex-pay-calculator",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "packages/calculator-web",
+    "packages/server"
+  ],
+  "scripts": {
+    "build:web": "npm run build --workspace calculator-web",
+    "start:web": "npm run start --workspace calculator-web"
+  }
+}
