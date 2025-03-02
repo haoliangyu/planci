@@ -75,8 +75,13 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-r">
-      <div className="container mx-auto px-4 py-8 flex flex-col md:flex-row items-center justify-center space-y-8 md:space-y-0 md:space-x-8">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-r overflow-y-auto">
+      <header className="w-full bg-white fixed top-0 shadow-xl">
+        <div className="container mx-auto px-4 py-4 flex items-center">
+          <h1 className="text-xl font-bold">Planci</h1>
+        </div>
+      </header>
+      <div className="container mx-auto px-4 py-8 flex flex-col md:flex-row justify-center space-y-8 md:space-y-0 md:space-x-8 mt-16">
         <div className="flex-1 text-center md:text-left">
           <h1 className="text-4xl font-extrabold mb-4 text-gray-800">Planci</h1>
           <p className="text-lg text-gray-700 mb-2">The universal calculator for pay-over-time plans.</p>
@@ -84,7 +89,7 @@ function App() {
           <p className="text-lg text-gray-700">Compare different cards and plans with ease.</p>
         </div>
         <div className="flex-1">
-          <div className="bg-white p-6 rounded-2xl shadow-2xl w-full max-w-md mx-auto">
+          <div className="bg-white p-6 rounded-2xl shadow-xl w-full max-w-md mx-auto">
             <form>
               <div className="mb-6">
                 <label className="block text-sm font-medium text-gray-700">Credit Card</label>
@@ -158,7 +163,7 @@ function App() {
           </div>
         </div>
       </div>
-      <div className="container mx-auto space-y-8 md:space-y-0 md:space-x-8">
+      <div className="container mx-auto space-y-8 md:space-y-0 md:space-x-8 px-4">
         <div className="space-y-4">
           <div className="text-2xl font-bold">Frequently Asked Questions</div>
           {faqs.map((faq, index) => (
