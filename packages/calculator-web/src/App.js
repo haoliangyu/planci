@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Select from 'react-select';
 import { calculateMonthlyPayment } from './utils/calculate-payment';
 import creditCardOptions from './data/credit-cards.json';
+import faqData from './data/faq.json';
 import './index.css'; // Ensure this import is present
 
 const customStyles = {
@@ -41,6 +42,7 @@ function App() {
   const [paymentDetails, setPaymentDetails] = useState(null);
   const [isAmountValid, setIsAmountValid] = useState(true);
   const [isTermValid, setIsTermValid] = useState(true);
+  const [faqs, setFaqs] = useState([]);
 
   useEffect(() => {
     if (isAmountValid && isTermValid && amount && term) {
@@ -50,6 +52,10 @@ function App() {
       setPaymentDetails(null);
     }
   }, [amount, term, isAmountValid, isTermValid]);
+
+  useEffect(() => {
+    setFaqs(faqData);
+  }, []);
 
   const handleAmountChange = (e) => {
     const value = e.target.value;
@@ -150,6 +156,17 @@ function App() {
           <div className="mt-4 text-center">
             <a href="#" className="text-black hover:text-black hover:underline font-medium">Compare more cards and plans</a>
           </div>
+        </div>
+      </div>
+      <div className="container mx-auto space-y-8 md:space-y-0 md:space-x-8">
+        <div className="space-y-4">
+          <div className="text-2xl font-bold">Frequently Asked Questions</div>
+          {faqs.map((faq, index) => (
+            <details key={index} className={`py-1 ${index !== faqs.length - 1 ? 'border-b border-gray-300' : ''}`}>
+              <summary className="cursor-pointer font-semibold py-1">{faq.question}</summary>
+              <p className="mt-2 w-full">{faq.answer}</p>
+            </details>
+          ))}
         </div>
       </div>
     </div>
