@@ -1,14 +1,18 @@
 [
   {
     "question": "What is Planci?",
-    "answer": "Planci is a universal calculator for pay-over-time plans, helping you know your monthly payments ahead of purchase."
+    "answer": "Planci is an easy-to-use tool that helps you estimate your monthly payments and fees for flexible payment plans on your credit cards. Instead of waiting for your bank to give you the details after a purchase, you can use Planci to see your plan options in advance and compare different cards all in one place."
   },
   {
     "question": "How do I use Planci?",
-    "answer": "Select a credit card, enter the amount and term, and Planci will calculate your monthly payment details."
+    "answer": "Simply choose a credit card, enter the purchase amount and the number of months you want to spread your payment over, and Planci will show you what your monthly payment might look like."
   },
   {
     "question": "Can I compare different plans?",
-    "answer": "Yes, you can compare different cards and plans with ease using Planci."
+    "answer": "Yes! Just click the \"Compare more cards and plans\" link to view and compare different payment options."
+  },
+  {
+    "question": "Is the calculation accurate?",
+    "answer": "Planci provides a best-effort estimate based on public information from banks. However, the final details may differ depending on your bank’s exact terms and your personal credit history."
   }
 ]
