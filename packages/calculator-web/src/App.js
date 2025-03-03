@@ -65,25 +65,36 @@ function App() {
   };
 
   const handleTermChange = (selectedOption) => {
-    setTerm(selectedOption.value);
-    setIsTermValid(selectedOption.value !== '');
+    if (selectedOption) {
+      setTerm(selectedOption.value);
+      setIsTermValid(selectedOption.value !== '');
+    } else {
+      setTerm('');
+      setIsTermValid(false);
+    }
   };
 
   const handleCreditCardChange = (selectedOption) => {
-    const selectedCard = creditCardOptions.find(card => card.value === selectedOption.value);
-    setSelectedCard(selectedCard);
-    setTerms(selectedCard.terms.map(term => ({ value: term, label: `${term} months` })));
-    setTerm('');
+    if (selectedOption) {
+      const selectedCard = creditCardOptions.find(card => card.value === selectedOption.value);
+      setSelectedCard(selectedCard);
+      setTerms(selectedCard.terms.map(term => ({ value: term, label: `${term} months` })));
+    } else {
+      setSelectedCard(null);
+      setTerms([]);
+      setTerm(''); // Clear the term selection
+    }
+    setAmount(''); // Clear the amount
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-r overflow-y-auto max-w-3xl mx-auto">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-r overflow-y-auto max-w-4xl mx-auto">
       <header className="header w-full bg-white fixed top-0 shadow-xl">
         <div className="container mx-auto px-4 py-4 flex items-center">
           <h1 className="text-xl font-bold">Planci <span className="text-sm font-medium text-gray-500">Beta</span></h1>
         </div>
       </header>
-      <div className="container mx-auto px-4 py-8 flex flex-col md:flex-row justify-center space-y-8 md:space-y-0 md:space-x-8 mt-16">
+      <div className="container mx-auto px-4 py-8 flex flex-col md:flex-row justify-center space-y-8 md:space-y-0 md:space-x-8 mt-60">
         <div className="flex-1 text-center md:text-left">
           <h1 className="text-4xl font-extrabold mb-4 text-gray-800">Planci</h1>
           <p className="text-lg text-gray-700 mb-2">The universal calculator for pay-over-time plans.</p>
@@ -101,6 +112,7 @@ function App() {
                   className="mt-1 block w-full rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                   onChange={handleCreditCardChange}
                   isSearchable={true} // Enable search functionality
+                  isClearable={true} // Enable clear functionality
                 />
               </div>
               <div className="mb-6 flex space-x-4">
@@ -128,6 +140,7 @@ function App() {
                     className="mt-1 block w-full rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                     value={terms.find(option => option.value === term)}
                     onChange={handleTermChange}
+                    isClearable={true} // Enable clear functionality
                   />
                   {!isTermValid && term !== '' && <p className="text-red-500 text-sm mt-1">Please enter a valid term.</p>}
                 </div>
