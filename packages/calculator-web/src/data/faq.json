@@ -1,18 +1,26 @@
 [
   {
     "question": "What is Planci?",
-    "answer": "Planci is an easy-to-use tool that helps you estimate your monthly payments and fees for flexible payment plans on your credit cards. Instead of waiting for your bank to give you the details after a purchase, you can use Planci to see your plan options in advance and compare different cards all in one place."
+    "answer": "Planci is an easy-to-use tool that lets you estimate your monthly payments and fees for flexible payment plans on your credit cards. Instead of waiting for your bank to provide details after a purchase, you can use Planci to preview your payment options and compare different cards in one place."
+  },
+  {
+    "question": "Which plan providers does Planci support?",
+    "answer": "Planci currently supports flexible payment plans from major credit card providers, including Chase (My Chase Plan), Citi (Flex Pay), and American Express (Plan It). We are actively working to add more providers soon."
   },
   {
     "question": "How do I use Planci?",
-    "answer": "Simply choose a credit card, enter the purchase amount and the number of months you want to spread your payment over, and Planci will show you what your monthly payment might look like."
+    "answer": "Simply choose a credit card, enter the purchase amount and the number of months over which you want to spread your payment, and Planci will show you an estimated monthly payment."
   },
   {
     "question": "Can I compare different plans?",
-    "answer": "Yes! Just click the \"Compare more cards and plans\" link to view and compare different payment options."
+    "answer": "Yes. Click the \"Compare more cards and plans\" link to view and compare various payment options."
   },
   {
     "question": "Is the calculation accurate?",
-    "answer": "Planci provides a best-effort estimate based on public information from banks. However, the final details may differ depending on your bank’s exact terms and your personal credit history."
+    "answer": "Planci provides an estimate based on public information from banks. However, the final details may vary depending on your bank’s exact terms and your personal credit history."
+  },
+  {
+    "question": "How can I provide feedback or report an issue?",
+    "answer": "Planci is currently in public beta, and we welcome your feedback and suggestions. Please stay tuned for upcoming contact details."
   }
 ]

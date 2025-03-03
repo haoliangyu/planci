@@ -43,15 +43,16 @@ function App() {
   const [isAmountValid, setIsAmountValid] = useState(true);
   const [isTermValid, setIsTermValid] = useState(true);
   const [faqs, setFaqs] = useState([]);
+  const [selectedCard, setSelectedCard] = useState(null);
 
   useEffect(() => {
-    if (isAmountValid && isTermValid && amount && term) {
-      const details = calculateMonthlyPayment(amount, term);
+    if (isAmountValid && isTermValid && amount && term && selectedCard) {
+      const details = calculateMonthlyPayment(amount, term, selectedCard.feeRate);
       setPaymentDetails(details);
     } else {
       setPaymentDetails(null);
     }
-  }, [amount, term, isAmountValid, isTermValid]);
+  }, [amount, term, isAmountValid, isTermValid, selectedCard]);
 
   useEffect(() => {
     setFaqs(faqData);
@@ -70,6 +71,7 @@ function App() {
 
   const handleCreditCardChange = (selectedOption) => {
     const selectedCard = creditCardOptions.find(card => card.value === selectedOption.value);
+    setSelectedCard(selectedCard);
     setTerms(selectedCard.terms.map(term => ({ value: term, label: `${term} months` })));
     setTerm('');
   };
