@@ -75,7 +75,7 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-r overflow-y-auto">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-r overflow-y-auto max-w-3xl mx-auto">
       <header className="w-full bg-white fixed top-0 shadow-xl">
         <div className="container mx-auto px-4 py-4 flex items-center">
           <h1 className="text-xl font-bold">Planci</h1>
