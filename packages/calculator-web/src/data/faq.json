@@ -5,14 +5,14 @@
   },
   {
     "question": "Which plan providers does Planci support?",
-    "answer": "Planci currently supports flexible payment plans from major credit card providers, including Chase (My Chase Plan), Citi (Flex Pay), and American Express (Plan It). We are actively working to add more providers soon."
+    "answer": "Planci currently supports flexible payment plans from major credit card providers, including Chase (Pay Over Time), Citi (Flex Pay), and American Express (Plan It). We are actively working to add more providers soon."
   },
   {
     "question": "How do I use Planci?",
     "answer": "Simply choose a credit card, enter the purchase amount and the number of months over which you want to spread your payment, and Planci will show you an estimated monthly payment."
   },
   {
-    "question": "Can I compare different plans?",
+    "question": "How I compare different plans?",
     "answer": "Yes. Click the \"Compare more cards and plans\" link to view and compare various payment options."
   },
   {

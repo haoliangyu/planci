@@ -100,6 +100,7 @@ function App() {
                   styles={customStyles}
                   className="mt-1 block w-full rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                   onChange={handleCreditCardChange}
+                  isSearchable={true} // Enable search functionality
                 />
               </div>
               <div className="mb-6 flex space-x-4">
