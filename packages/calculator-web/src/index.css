@@ -3,6 +3,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import './styles/header.css';
+
 /* Custom styles */
 body {
   @apply bg-gray-100 text-gray-900;
@@ -157,3 +159,4 @@ body {
 .focus\:ring-offset-2 {
   box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.5), 0 0 0 2px white;
 }
+
