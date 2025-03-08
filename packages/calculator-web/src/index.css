@@ -162,3 +162,10 @@ body {
 .focus\:ring-offset-2 {
   box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.5), 0 0 0 2px white;
 }
+
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9999; /* Ensure the header stays on top of all other elements */
+}
