@@ -4,6 +4,7 @@ import { calculateMonthlyPayment } from './utils/calculate-payment';
 import cardProviderOptions from './data/card-providers.json';
 import faqData from './data/faq.json';
 import './index.css'; // Ensure this import is present
+import { Helmet } from 'react-helmet'; // Import Helmet
 
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from '@vercel/speed-insights/react';
@@ -92,6 +93,11 @@ function App() {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-r overflow-y-auto max-w-4xl mx-auto mt-20">
+      <Helmet>
+        <title>Planci - Flexible Payment Plan Calculator</title>
+        <meta name="description" content="Planci is an easy-to-use tool that lets you estimate your monthly payments and fees for flexible payment plans on your credit cards." />
+        <meta name="keywords" content="payment plan, credit card, monthly payments, fees, calculator" />
+      </Helmet>
       <header className="header w-full bg-white fixed top-0 shadow-xl">
         <div className="container mx-auto px-4 py-4 flex items-center">
           <h1 className="text-xl font-bold">Planci <span className="text-sm font-medium text-gray-500">Beta</span></h1>
