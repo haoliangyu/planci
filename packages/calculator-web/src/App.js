@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Select from 'react-select';
 import { calculateMonthlyPayment } from './utils/calculate-payment';
-import creditCardOptions from './data/credit-cards.json';
+import cardProviderOptions from './data/card-providers.json';
 import faqData from './data/faq.json';
 import './index.css'; // Ensure this import is present
 
@@ -76,7 +76,7 @@ function App() {
 
   const handleCreditCardChange = (selectedOption) => {
     if (selectedOption) {
-      const selectedCard = creditCardOptions.find(card => card.value === selectedOption.value);
+      const selectedCard = cardProviderOptions.find(card => card.value === selectedOption.value);
       setSelectedCard(selectedCard);
       setTerms(selectedCard.terms.map(term => ({ value: term, label: `${term} months` })));
     } else {
@@ -105,9 +105,9 @@ function App() {
           <div className="bg-white p-6 rounded-2xl shadow-xl w-full max-w-md mx-auto">
             <form>
               <div className="mb-6">
-                <label className="block text-sm font-medium text-gray-700">Credit Card</label>
+                <label className="block text-sm font-medium text-gray-700">Card Provider</label>
                 <Select
-                  options={creditCardOptions}
+                  options={cardProviderOptions}
                   styles={customStyles}
                   className="mt-1 block w-full rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                   onChange={handleCreditCardChange}

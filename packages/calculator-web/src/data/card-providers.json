@@ -1,0 +1,20 @@
+[
+  {
+    "value": "amex",
+    "label": "American Express",
+    "terms": [3, 6, 12, 18],
+    "feeRate": 0.0133
+  },
+  {
+    "value": "chase",
+    "label": "Chase",
+    "terms": [3, 6, 12, 18, 24],
+    "feeRate": 0.0172
+  },
+  {
+    "value": "citi",
+    "label": "Citi",
+    "terms": [3, 6, 12, 18, 24],
+    "feeRate": 0.0172
+  }
+]
