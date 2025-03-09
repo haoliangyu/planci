@@ -1,1 +1,0 @@
-{"version":3,"sources":["webpack://src/App.css"],"names":[],"mappings":"AACA,cAAc,CACd,oBAAoB,CACpB,mBAAmB,CAGnB,KACE,+BAAgC,CAClC","file":"main.b016e6e2.chunk.css","sourcesContent":["/* Add Tailwind CSS directives */\n@tailwind base;\n@tailwind components;\n@tailwind utilities;\n\n/* Custom styles */\nbody {\n  @apply bg-gray-100 text-gray-900;\n}\n"]}

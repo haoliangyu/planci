@@ -129,4 +129,4 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
-packages/calculator-web/build
+packages/planci-web/build
