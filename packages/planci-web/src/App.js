@@ -5,6 +5,9 @@ import cardProviderOptions from './data/card-providers.json';
 import faqData from './data/faq.json';
 import './index.css'; // Ensure this import is present
 
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from '@vercel/speed-insights/react';
+
 const customStyles = {
   control: (provided) => ({
     ...provided,
@@ -190,6 +193,8 @@ function App() {
           ))}
         </div>
       </div>
+      <Analytics/>
+      <SpeedInsights/>
     </div>
   );
 }
