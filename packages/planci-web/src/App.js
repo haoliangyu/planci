@@ -5,9 +5,10 @@ import cardProviderOptions from './data/card-providers.json';
 import faqData from './data/faq.json';
 import './index.css'; // Ensure this import is present
 import { Helmet } from 'react-helmet'; // Import Helmet
+import Header from './components/Header'; // Import Header component
 
 import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from '@vercel/speed-insights/react';
+import { SpeedInsights } from "@vercel/speed-insights/react";
 
 const customStyles = {
   control: (provided) => ({
@@ -98,11 +99,7 @@ function App() {
         <meta name="description" content="Planci is an easy-to-use tool that lets you estimate your monthly payments and fees for flexible payment plans on your credit cards." />
         <meta name="keywords" content="payment plan, credit card, monthly payments, fees, calculator" />
       </Helmet>
-      <header className="header w-full bg-white fixed top-0 shadow-xl">
-        <div className="container mx-auto px-4 py-4 flex items-center">
-          <h1 className="text-xl font-bold">Planci <span className="text-sm font-medium text-gray-500">Beta</span></h1>
-        </div>
-      </header>
+      <Header /> {/* Add Header component */}
       <div className="container mx-auto px-4 py-8 flex flex-col md:flex-row justify-center space-y-8 md:space-y-0 md:space-x-8">
         <div className="flex-1 text-center md:text-left">
           <h1 className="text-4xl font-extrabold mb-4 text-gray-800">Planci</h1>
