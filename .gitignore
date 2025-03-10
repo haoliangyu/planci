@@ -131,3 +131,5 @@ dist
 
 packages/planci-web/build
 packages/planci-web/public/sitemap.xml
+
+.DS_Store
