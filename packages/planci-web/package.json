@@ -4,10 +4,11 @@
   "private": true,
   "main": "index.js",
   "scripts": {
-    "start": "NODE_OPTIONS=--openssl-legacy-provider react-scripts start",
-    "build": "NODE_OPTIONS=--openssl-legacy-provider react-scripts build",
+    "start": "npm run generate-sitemap && NODE_OPTIONS=--openssl-legacy-provider react-scripts start",
+    "build": "npm run generate-sitemap &&NODE_OPTIONS=--openssl-legacy-provider react-scripts build",
     "test": "NODE_OPTIONS=--openssl-legacy-provider react-scripts test",
-    "eject": "NODE_OPTIONS=--openssl-legacy-provider react-scripts eject"
+    "eject": "NODE_OPTIONS=--openssl-legacy-provider react-scripts eject",
+    "generate-sitemap": "node scripts/generate-sitemap.js"
   },
   "dependencies": {
     "@vercel/analytics": "^1.5.0",
@@ -21,7 +22,9 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.4.20",
-    "postcss-cli": "^11.0.0"
+    "fs-extra": "^11.0.0",
+    "postcss-cli": "^11.0.0",
+    "sitemap": "^8.0.0"
   },
   "browserslist": {
     "production": [

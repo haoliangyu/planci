@@ -130,3 +130,4 @@ dist
 .pnp.*
 
 packages/planci-web/build
+packages/planci-web/public/sitemap.xml
