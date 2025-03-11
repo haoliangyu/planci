@@ -20,7 +20,7 @@ const Header = () => {
                 <div className="flex space-x-4">
                   <a href="/" className="text-black px-3 py-2 text-sm font-medium border-b-2 border-white hover:border-black">Calculate</a>
                   <a href="/compare" className="text-black px-3 py-2 text-sm font-medium border-b-2 border-white hover:border-black">Compare</a>
-                  <a href="/faqs" className="text-black px-3 py-2 text-sm font-medium border-b-2 border-white hover:border-black">FAQs</a>
+                  <a href="/faq" className="text-black px-3 py-2 text-sm font-medium border-b-2 border-white hover:border-black">FAQs</a>
                 </div>
               </div>
             </div>
@@ -52,7 +52,7 @@ const Header = () => {
             <div className="px-2 pt-2 pb-3 space-y-1 flex flex-col items-center">
               <a href="/" className="text-black block px-3 py-2 text-base font-medium">Calculate</a>
               <a href="/compare" className="text-black block px-3 py-2 text-base font-medium">Compare</a>
-              <a href="/faqs" className="text-black block px-3 py-2 text-base font-medium">FAQs</a>
+              <a href="/faq" className="text-black block px-3 py-2 text-base font-medium">FAQs</a>
             </div>
           </div>
         )}

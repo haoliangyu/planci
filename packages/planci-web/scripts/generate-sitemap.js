@@ -7,6 +7,7 @@ import { dirname } from 'path';
 // An array with your links
 const links = [
   { url: '/', changefreq: 'daily', priority: 1.0 },
+  { url: '/faq', changefreq: 'daily', priority: 1.0 },
 ]
 
 // Create a stream to write to
