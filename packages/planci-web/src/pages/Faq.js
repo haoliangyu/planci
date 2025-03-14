@@ -9,7 +9,7 @@ const Faq = () => {
   }, []);
 
   return (
-    <div className="mx-auto space-y-8 md:space-y-0 md:space-x-8 px-4 mt-24 w-full sm:w-430 md:w-768 lg:w-875">
+    <div className="faq-container mx-auto space-y-8 md:space-y-0 md:space-x-8 px-4 mt-24 w-full sm:w-430 md:w-768 lg:w-875">
       <div className="space-y-4">
         <div className="text-2xl font-bold">Frequently Asked Questions</div>
         {faqs.map((faq, index) => (

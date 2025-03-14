@@ -20,6 +20,24 @@ body {
   max-width: 857px;
 }
 
+@media (min-width: 640px) {
+  div.faq-container {
+    width: 430px;
+  }
+}
+
+@media (min-width: 768px) {
+  div.faq-container {
+    width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+  div.faq-container {
+    width: 875px;
+  }
+}
+
 .min-h-screen {
   min-height: 100vh;
 }
