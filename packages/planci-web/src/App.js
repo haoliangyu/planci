@@ -107,6 +107,37 @@ function App() {
               <title>Planci - Flexible Payment Plan Calculator</title>
               <meta name="description" content="Planci is an easy-to-use tool that lets you estimate your monthly payments and fees for flexible payment plans on your credit cards." />
               <meta name="keywords" content="payment plan, credit card, monthly payments, fees, calculator" />
+              <meta name="author" content="Planci Team" />
+              <meta property="og:title" content="Planci - Flexible Payment Plan Calculator" />
+              <meta property="og:description" content="Planci is an easy-to-use tool that lets you estimate your monthly payments and fees for flexible payment plans on your credit cards." />
+              <meta property="og:type" content="website" />
+              <meta property="og:url" content="https://www.planci.com" />
+              <meta property="og:image" content="https://www.planci.com/logo.png" />
+              <meta name="twitter:card" content="summary_large_image" />
+              <meta name="twitter:title" content="Planci - Flexible Payment Plan Calculator" />
+              <meta name="twitter:description" content="Planci is an easy-to-use tool that lets you estimate your monthly payments and fees for flexible payment plans on your credit cards." />
+              <meta name="twitter:image" content="https://www.planci.com/logo.png" />
+              <meta name="robots" content="index, follow" /> {/* For Google */}
+              <meta name="googlebot" content="index, follow" /> {/* For Google */}
+              <meta name="bingbot" content="index, follow" /> {/* For Bing */}
+              <meta name="yahoobot" content="index, follow" /> {/* For Yahoo */}
+              <meta name="duckduckgobot" content="index, follow" /> {/* For DuckDuckGo */}
+              <meta name="baiduspider" content="index, follow" /> {/* For Baidu */}
+              <script type="application/ld+json">
+                {`
+                  {
+                    "@context": "https://schema.org",
+                    "@type": "WebSite",
+                    "name": "Planci",
+                    "url": "https://www.planci.com",
+                    "description": "Planci is an easy-to-use tool that lets you estimate your monthly payments and fees for flexible payment plans on your credit cards.",
+                    "publisher": {
+                      "@type": "Organization",
+                      "name": "Planci Team"
+                    }
+                  }
+                `}
+              </script>
             </Helmet>
             <Header /> {/* Add Header component */}
             <div className="container mx-auto px-4 py-8 flex flex-col space-y-8">
