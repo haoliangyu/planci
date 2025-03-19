@@ -67,35 +67,6 @@ function App() {
     setFaqs(faqData);
   }, []);
 
-  const handleAmountChange = (e) => {
-    const value = e.target.value;
-    setAmount(value);
-    setIsAmountValid(value === '' || /^\d+(\.\d{1,2})?$/.test(value));
-  };
-
-  const handleTermChange = (selectedOption) => {
-    if (selectedOption) {
-      setTerm(selectedOption.value);
-      setIsTermValid(selectedOption.value !== '');
-    } else {
-      setTerm('');
-      setIsTermValid(false);
-    }
-  };
-
-  const handleCreditCardChange = (selectedOption) => {
-    if (selectedOption) {
-      const selectedCard = cardProviderOptions.find(card => card.value === selectedOption.value);
-      setSelectedCard(selectedCard);
-      setTerms(selectedCard.terms.map(term => ({ value: term, label: `${term} months` })));
-    } else {
-      setSelectedCard(null);
-      setTerms([]);
-      setTerm(''); // Clear the term selection
-    }
-    setAmount(''); // Clear the amount
-  };
-
   return (
     <Router>
       <Header />
@@ -106,7 +77,7 @@ function App() {
           <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-r overflow-y-auto max-w-4xl mx-auto mt-20">
             <Helmet>
               <title>Planci - Flexible Payment Plan Calculator</title>
-              <meta name="description" content="Planci is an easy-to-use tool that lets you estimate your monthly payments and fees for flexible payment plans on your credit cards." />
+              <meta name="description" content="Planci is an easy-to-use tool that lets you estimate your monthly payments and fees for flexible payment plans on your credit cards." /> {/* Ensure meta description is present */}
               <meta name="keywords" content="payment plan, credit card, monthly payments, fees, calculator" />
               <meta name="author" content="Planci Team" />
               <meta property="og:title" content="Planci - Flexible Payment Plan Calculator" />

@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from '../components/Header'; // Import Header component
 
 const Compare = () => {
+  const [amount, setAmount] = useState('');
+
   return (
     <div>
       <Header />
