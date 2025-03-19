@@ -8,6 +8,7 @@ import { Helmet } from 'react-helmet'; // Import Helmet
 import Header from './components/Header'; // Import Header component
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // Import Router components
 import Faq from './pages/Faq'; // Import Faq page
+import Compare from './pages/Compare'; // Import Compare page
 
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
@@ -99,6 +100,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/faq" element={<Faq />} />
+        <Route path="/compare" element={<Compare />} /> {/* Add Compare route */}
         <Route path="/" element={
           <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-r overflow-y-auto max-w-4xl mx-auto mt-20">
             <Helmet>
@@ -188,7 +190,7 @@ function App() {
                   )}
                 </div>
                 <div className="mt-4 text-center">
-                  <a href="#" className="text-black hover:text-black hover:underline font-medium">Compare more cards and plans</a>
+                  <a href="/compare" className="text-black hover:text-black hover:underline font-medium">Compare more cards and plans</a>
                 </div>
               </div>
             </div>
