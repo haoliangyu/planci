@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Select from 'react-select';
 import { calculateMonthlyPayment } from '../utils/calculate-payment';
 import cardProviderOptions from '../data/card-providers.json';
+import AmountInput from './AmountInput'; // Import AmountInput component
 
 const customStyles = {
   control: (provided) => ({
@@ -97,19 +98,7 @@ const Calculator = () => {
         <div className="mb-6 flex space-x-4">
           <div className="flex-1">
             <label className="block text-sm font-medium text-gray-700">Amount</label>
-            <div className="relative mt-1 rounded-md shadow-sm" style={{ height: '62px' }}>
-              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                <span className="text-gray-500 sm:text-sm">$</span>
-              </div>
-              <input
-                type="number"
-                step="0.01"
-                className={`block w-full h-full pl-7 pr-3 py-3 border ${isAmountValid ? 'text-gray-900' : 'text-red-500'} rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm`}
-                placeholder="Enter amount"
-                value={amount}
-                onChange={handleAmountChange}
-              />
-            </div>
+            <AmountInput amount={amount} setAmount={setAmount} isAmountValid={isAmountValid} /> {/* Use AmountInput component */}
           </div>
           <div className="flex-1">
             <label className="block text-sm font-medium text-gray-700">Term (months)</label>
