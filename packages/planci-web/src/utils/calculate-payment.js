@@ -1,7 +1,7 @@
 export function calculateMonthlyPayment(amount, term, feeRate) {
   if (amount && term && feeRate) {
     const monthlyBase = parseFloat(amount) / parseInt(term);
-    const monthlyFee = monthlyBase * parseFloat(feeRate);
+    const monthlyFee = parseFloat(amount) * parseFloat(feeRate);
     const monthlyPayment = monthlyBase + monthlyFee;
     const totalPayment = monthlyPayment * parseInt(term);
     const totalFee = monthlyFee * parseInt(term);

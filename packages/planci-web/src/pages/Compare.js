@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Header from '../components/Header'; // Import Header component
 import AmountInput from '../components/AmountInput'; // Import AmountInput component
+import Calculator from '../components/Calculator'; // Import Calculator component
 
 const Compare = () => {
   const [amount, setAmount] = useState('');
@@ -18,6 +19,9 @@ const Compare = () => {
           <div className="mx-auto" style={{ maxWidth: '200px' }}>
             <AmountInput amount={amount} setAmount={setAmount} isAmountValid={true} /> {/* Use AmountInput component */}
           </div>
+        </div>
+        <div className="">
+          <Calculator initialAmount={amount} hideAmountInput={true} /> {/* Pass amount to Calculator component and hide amount input */}
         </div>
       </div>
     </div>

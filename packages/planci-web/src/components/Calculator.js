@@ -34,8 +34,8 @@ const customStyles = {
   }),
 };
 
-const Calculator = () => {
-  const [amount, setAmount] = useState('');
+const Calculator = ({ initialAmount, hideAmountInput = false }) => {
+  const [amount, setAmount] = useState(initialAmount || '');
   const [term, setTerm] = useState('');
   const [terms, setTerms] = useState([]);
   const [paymentDetails, setPaymentDetails] = useState(null);
@@ -52,19 +52,22 @@ const Calculator = () => {
     }
   }, [amount, term, isAmountValid, isTermValid, selectedCard]);
 
-  const handleAmountChange = (e) => {
-    const value = e.target.value;
-    setAmount(value);
-    setIsAmountValid(value === '' || /^\d+(\.\d{1,2})?$/.test(value));
-  };
+  useEffect(() => {
+    setAmount(initialAmount || '');
+  }, [initialAmount]);
 
   const handleTermChange = (selectedOption) => {
     if (selectedOption) {
       setTerm(selectedOption.value);
       setIsTermValid(selectedOption.value !== '');
+      if (isAmountValid && selectedCard) {
+        const details = calculateMonthlyPayment(amount, selectedOption.value, selectedCard.feeRate);
+        setPaymentDetails(details);
+      }
     } else {
       setTerm('');
       setIsTermValid(false);
+      setPaymentDetails(null);
     }
   };
 
@@ -78,8 +81,19 @@ const Calculator = () => {
       setTerms([]);
       setTerm(''); // Clear the term selection
     }
-    setAmount(''); // Clear the amount
+    if (!initialAmount) {
+      setAmount(''); // Clear the amount if not provided as initialAmount
+    }
   };
+
+  useEffect(() => {
+    if (isAmountValid && isTermValid && amount && term && selectedCard) {
+      const details = calculateMonthlyPayment(amount, term, selectedCard.feeRate);
+      setPaymentDetails(details);
+    } else {
+      setPaymentDetails(null);
+    }
+  }, [term]); // Add term to the dependency array to update plan details when term changes
 
   return (
     <div className="bg-white p-6 rounded-2xl shadow-xl w-full max-w-md mx-auto">
@@ -96,10 +110,12 @@ const Calculator = () => {
           />
         </div>
         <div className="mb-6 flex space-x-4">
-          <div className="flex-1">
-            <label className="block text-sm font-medium text-gray-700">Amount</label>
-            <AmountInput amount={amount} setAmount={setAmount} isAmountValid={isAmountValid} /> {/* Use AmountInput component */}
-          </div>
+          {!hideAmountInput && ( // Hide amount input if hideAmountInput is true
+            <div className="flex-1">
+              <label className="block text-sm font-medium text-gray-700">Amount</label>
+              <AmountInput amount={amount} setAmount={setAmount} isAmountValid={isAmountValid} /> {/* Use AmountInput component */}
+            </div>
+          )}
           <div className="flex-1">
             <label className="block text-sm font-medium text-gray-700">Term (months)</label>
             <Select
@@ -116,7 +132,7 @@ const Calculator = () => {
       </form>
       {paymentDetails !== null && (
         <div className="mt-6">
-          <h2 className="text-xl text-center text-gray-800">Plan Details</h2>
+          <h2 className="text-xl text-gray-800">Plan Details</h2> {/* Remove text-center class */}
           <div className="overflow-x-auto">
             <table className="min-w-full divide-y divide-gray-200">
               <tbody className="bg-white divide-y divide-gray-200">
