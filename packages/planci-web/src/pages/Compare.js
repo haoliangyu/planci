@@ -1,10 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from '../components/Header'; // Import Header component
 import AmountInput from '../components/AmountInput'; // Import AmountInput component
 import Calculator from '../components/Calculator'; // Import Calculator component
 
 const Compare = () => {
   const [amount, setAmount] = useState('');
+  const [calculators, setCalculators] = useState([]);
+
+  const addCalculator = () => {
+    setCalculators([...calculators, calculators.length]);
+  };
+
+  useEffect(() => {
+    // Trigger re-render of calculators when amount changes
+    setCalculators([...calculators]);
+  }, [amount]);
 
   return (
     <div>
@@ -19,9 +29,16 @@ const Compare = () => {
           <div className="mx-auto" style={{ maxWidth: '200px' }}>
             <AmountInput amount={amount} setAmount={setAmount} isAmountValid={true} /> {/* Use AmountInput component */}
           </div>
+          <div className="mt-4">
+            <button className="text-black underline font-medium hover:text-black" onClick={addCalculator}>Add plans</button>
+          </div>
         </div>
-        <div className="">
-          <Calculator initialAmount={amount} hideAmountInput={true} /> {/* Pass amount to Calculator component and hide amount input */}
+        <div id="compare-plans" className="grid grid-cols-1 md:grid-cols-2 gap-4 mx-auto">
+          {calculators.map((key) => (
+            <div key={key} style={{ width: '300px' }}>
+              <Calculator initialAmount={amount} hideAmountInput={true} /> {/* Pass amount to Calculator component and hide amount input */}
+            </div>
+          ))}
         </div>
       </div>
     </div>
