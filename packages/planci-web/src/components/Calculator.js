@@ -42,15 +42,22 @@ const Calculator = ({ initialAmount, hideAmountInput = false, showRemoveButton =
   const [isAmountValid, setIsAmountValid] = useState(true);
   const [isTermValid, setIsTermValid] = useState(true);
   const [selectedCard, setSelectedCard] = useState(null);
+  const [showWarning, setShowWarning] = useState(false); // New state for warning
 
   useEffect(() => {
-    if (isAmountValid && isTermValid && amount && term && selectedCard) {
-      const details = calculateMonthlyPayment(amount, term, selectedCard.feeRate);
-      setPaymentDetails(details);
+    if (selectedCard && amount && Number(amount) < selectedCard.minimalAmount) {
+      setShowWarning(true);
+      setPaymentDetails(null); // Prevent showing plan result
     } else {
-      setPaymentDetails(null);
+      setShowWarning(false);
+      if (isAmountValid && isTermValid && amount && term && selectedCard) {
+        const details = calculateMonthlyPayment(amount, term, selectedCard.feeRate);
+        setPaymentDetails(details);
+      } else {
+        setPaymentDetails(null);
+      }
     }
-  }, [amount, term, isAmountValid, isTermValid, selectedCard]);
+  }, [amount, term, selectedCard, isAmountValid, isTermValid]);
 
   useEffect(() => {
     setAmount(initialAmount || '');
@@ -125,11 +132,17 @@ const Calculator = ({ initialAmount, hideAmountInput = false, showRemoveButton =
               value={terms.find(option => option.value === term)}
               onChange={handleTermChange}
               isClearable={true} // Enable clear functionality
+              isDisabled={showWarning} // Disable term selection if warning is shown
             />
             {!isTermValid && term !== '' && <p className="text-red-500 text-sm mt-1">Please enter a valid term.</p>}
           </div>
         </div>
       </form>
+      {showWarning && (
+        <p className="text-red-500 text-sm mt-4">
+          The amount must be at least ${selectedCard?.minimalAmount}.
+        </p>
+      )}
       {paymentDetails !== null && (
         <div className="mt-6">
           <h2 className="text-xl text-gray-800">Plan Details</h2> {/* Remove text-center class */}
