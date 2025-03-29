@@ -11,6 +11,10 @@ const Compare = () => {
     setCalculators([...calculators, calculators.length]);
   };
 
+  const removeCalculator = (index) => {
+    setCalculators(calculators.filter((_, i) => i !== index));
+  };
+
   useEffect(() => {
     // Trigger re-render of calculators when amount changes
     setCalculators([...calculators]);
@@ -30,13 +34,21 @@ const Compare = () => {
             <AmountInput amount={amount} setAmount={setAmount} isAmountValid={true} /> {/* Use AmountInput component */}
           </div>
           <div className="mt-4">
-            <button className="text-black underline font-medium hover:text-black" onClick={addCalculator}>Add plans</button>
+            <button className="text-black underline font-medium hover:text-black" onClick={addCalculator}>Add more plans</button>
           </div>
         </div>
         <div id="compare-plans" className="grid grid-cols-1 md:grid-cols-2 gap-4 mx-auto">
-          {calculators.map((key) => (
+          {calculators.map((key, index) => (
             <div key={key} style={{ width: '300px' }}>
-              <Calculator initialAmount={amount} hideAmountInput={true} /> {/* Pass amount to Calculator component and hide amount input */}
+              <Calculator
+                initialAmount={amount}
+                hideAmountInput={true}
+                showRemoveButton={{
+                  text: 'Remove',
+                  style: { color: 'black' }
+                }}
+                onRemove={() => removeCalculator(index)}
+              />
             </div>
           ))}
         </div>

@@ -34,7 +34,7 @@ const customStyles = {
   }),
 };
 
-const Calculator = ({ initialAmount, hideAmountInput = false }) => {
+const Calculator = ({ initialAmount, hideAmountInput = false, showRemoveButton = false, onRemove }) => {
   const [amount, setAmount] = useState(initialAmount || '');
   const [term, setTerm] = useState('');
   const [terms, setTerms] = useState([]);
@@ -155,6 +155,16 @@ const Calculator = ({ initialAmount, hideAmountInput = false }) => {
               </tbody>
             </table>
           </div>
+        </div>
+      )}
+      {showRemoveButton && (
+        <div className="mt-4 text-center">
+          <button
+            className="text-black underline font-medium"
+            onClick={onRemove}
+          >
+            Remove
+          </button>
         </div>
       )}
     </div>
