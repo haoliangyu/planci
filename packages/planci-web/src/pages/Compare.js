@@ -37,7 +37,7 @@ const Compare = () => {
             <button className="text-black underline font-medium hover:text-black" onClick={addCalculator}>Add more plans</button>
           </div>
         </div>
-        <div id="compare-plans" className="grid grid-cols-1 md:grid-cols-2 gap-4 mx-auto">
+        <div id="compare-plans" className="grid grid-cols-1 md:grid-cols-3 gap-4 mx-auto">
           {calculators.map((key, index) => (
             <div key={key} style={{ width: '300px' }}>
               <Calculator
